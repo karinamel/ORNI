@@ -17,11 +17,11 @@ public class Main {
                 int a = Integer.parseInt(elements[0]);
                 String operator = elements[1];
                 int b = Integer.parseInt(elements[2]);
+
                 Integer result = calculate(a, b, operator);
                 System.out.println(expression + " = " + result);
-                System.out.println("Enter an expression:");
             }
-
+            System.out.println("Enter an expression:");
         }
     }
 
