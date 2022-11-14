@@ -1,9 +1,9 @@
-package org.example;
+package org.example.ex1;
 
 import java.util.Scanner;
 import java.util.regex.Pattern;
 
-public class Main {
+public class Calculator {
     public static void main(String[] args) {
         System.out.println("Enter an expression:");
         Scanner scanner = new Scanner(System.in);
