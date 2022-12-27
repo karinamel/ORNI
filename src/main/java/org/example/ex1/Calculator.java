@@ -10,15 +10,10 @@ public class Calculator {
 
         String expression;
         while (!(expression = scanner.nextLine()).equals("q")) {
-            if (!checkExpression(expression)) {
+            Integer result = calculate(expression);
+            if (result == null) {
                 System.out.println("Expression mask: a + b . Mathematical symbols: + - / * . Only integer");
             } else {
-                String[] elements = expression.split(" ");
-                int a = Integer.parseInt(elements[0]);
-                String operator = elements[1];
-                int b = Integer.parseInt(elements[2]);
-
-                Integer result = calculate(a, b, operator);
                 System.out.println(expression + " = " + result);
             }
             System.out.println("Enter an expression:");
@@ -37,5 +32,18 @@ public class Calculator {
 
     public static boolean checkExpression (String expression) {
         return Pattern.matches("^\\s*-?\\d+\\s[+-/*]\\s-?\\d+\\s*$", expression);
+    }
+
+    public static Integer calculate(String expression) {
+        if (!checkExpression(expression)) {
+            return null;
+        }
+        expression = expression.trim();
+        String[] elements = expression.split(" ");
+        int a = Integer.parseInt(elements[0]);
+        String operator = elements[1];
+        int b = Integer.parseInt(elements[2]);
+
+        return calculate(a, b, operator);
     }
 }
